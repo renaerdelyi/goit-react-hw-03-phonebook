@@ -1,0 +1,10 @@
+.contactStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btnDelete {
+  gap: 20px;
+  margin-left: 15px;
+}
