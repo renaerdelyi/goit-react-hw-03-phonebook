@@ -41,6 +41,27 @@ export class App extends Component {
     }));
   };
 
+  componentDidMount() {
+    this.loadContacts();
+  }
+
+  loadContacts = () => {
+    try {
+      const storedContacts = JSON.parse(localStorage.getItem('contacts'));
+      if (storedContacts) {
+        this.setState({ contacts: storedContacts });
+      }
+    } catch (error) {
+      console.error('Failed to load contacts', error);
+    }
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   render() {
     return (
       <div className={styles.App}>

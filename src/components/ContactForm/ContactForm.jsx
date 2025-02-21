@@ -21,6 +21,8 @@ export class ContactForm extends Component {
     this.props.onAddContact(contact);
     this.setState({ name: '', number: '' });
   };
+
+  
   render() {
     return (
       <div>
